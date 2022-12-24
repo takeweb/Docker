@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  db:
+    container_name: local_db_container
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+    - postgresql-volume-dev1:/var/lib/postgresql/data
+    ports:
+    - 5433:5432
+
+volumes:
+  postgresql-volume-dev1:
+    name: postgresql-volume-dev1
+    driver: local
+

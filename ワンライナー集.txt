@@ -1,0 +1,1 @@
+docker run --name local-nginx -d -p 8081:80 nginx:latest
