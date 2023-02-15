@@ -1,0 +1,23 @@
+version: '3.1'
+
+services:
+  db_mysql:
+    container_name: local_db_container_mysql
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      MYSQL_ROOT_PASSWORD: my-secret-pw
+      MYSQL_DATABASE: test_db
+      MYSQL_USER: mysql
+      MYSQL_PASSWORD: mysql
+    volumes:
+    - volume-mysql8:/var/lib/mysql
+    ports:
+    - 13306:3306
+    platform: linux/amd64
+
+volumes:
+  volume-mysql8:
+    name: volume-mysql8
+    driver: local

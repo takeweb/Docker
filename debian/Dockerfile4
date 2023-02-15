@@ -1,0 +1,7 @@
+FROM debian:bullseye
+RUN apt-get update && apt-get install -y \
+	vim gzip locales-all task-japanese
+
+RUN sed -i -E 's/# (ja_JP.UTF-8)/\1/' /etc/locale.gen
+RUN locale-gen
+RUN update-locale LANG=ja_JP.UTF-8
