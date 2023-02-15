@@ -1,1 +1,9 @@
 docker run --name local-nginx -d -p 8081:80 nginx:latest
+docker run --rm -it rockylinux
+docker run --rm -it vcatechnology/linux-mint
+docker run --rm -it debian:latest
+
+
+docker run -it debian:latest
+
+docker run -it debian_develop-env:latest

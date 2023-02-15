@@ -1,0 +1,7 @@
+FROM debian:latest
+RUN apt-get update && apt-get install -y \
+	vim gzip locales-all task-japanese
+
+RUN localedef -i ja_JP -c -f UTF-8 -A /usr/share/locale/locale.alias ja_JP.UTF-8
+RUN ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
+ENV LANG ja_JP.UTF8

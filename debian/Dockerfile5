@@ -1,0 +1,9 @@
+FROM debian:latest
+RUN apt update && apt install -y \
+	wget gzip vim curl gawk make gcc git zlib1g-dev \
+	locales task-japanese
+
+RUN localedef -i ja_JP -c -f UTF-8 -A /usr/share/locale/locale.alias ja_JP.UTF-8
+RUN ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
+ENV LANG ja_JP.UTF8
+RUN mkdir /workspace
