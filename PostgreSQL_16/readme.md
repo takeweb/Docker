@@ -1,4 +1,31 @@
+# PostgreSQLの新しいバージョンがリリースされたらやること
+
+## Docker イメージ探しはここ
+https://hub.docker.com/_/postgres
+
+## Dockerfileの編集
+下記部分のバージョンを上記で見つけたバージョンに書き換える
+FROM postgres:16.0
+
+## docker-compose.ymlの編集
+container_name: local_db_container_pg16
+postgresql-volume-pg16:/var/lib/postgresql/data
+postgresql-volume-pg16
+postgresql-volume-pg16
+
+# 起動
 docker-compose up --build -d
+
+# .pgpassに追加
+localhost:5435:postgres:postgres:postgres
+
+# psql_utilで選択して接続
+どのサーバに接続しますか?
+1) database-1.cosgrtzynkks.ap-northeast-1.rds.amazonaws.com:5432:postgres:postgres
+2) debian-sv:5435:my_db:takeweb
+3) localhost:5435:postgres:postgres
+#? 3
+
 docker-compose down
 
 docker volume ls

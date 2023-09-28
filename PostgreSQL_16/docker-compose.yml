@@ -2,7 +2,7 @@ version: '3'
 
 services:
   db:
-    container_name: local_db_container_pg15
+    container_name: local_db_container_pg16
     build:
       context: .
       dockerfile: Dockerfile
@@ -11,12 +11,12 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
     volumes:
-    - postgresql-volume-pg15:/var/lib/postgresql/data
+    - postgresql-volume-pg16:/var/lib/postgresql/data
     ports:
-    - 5434:5432
+    - 5435:5432
 
 volumes:
-  postgresql-volume-pg15:
-    name: postgresql-volume-pg15
+  postgresql-volume-pg16:
+    name: postgresql-volume-pg16
     driver: local
 
